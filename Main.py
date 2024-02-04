@@ -19,15 +19,15 @@ class Oyun:
         self.sihirliler = sihirlik_g
         self.teknoloji = teknoloji_g
 
-        self.ileri_seviye_muzigi = pygame.mixer.Sound("Sesler/yeniseviye.wav")
-        pygame.mixer.music.load("Sesler/arka_ses.flac")
+        self.ileri_seviye_muzigi = pygame.mixer.Sound("yeniseviye.wav")
+        pygame.mixer.music.load("arka_ses.flac")
         self.font = pygame.font.Font("AttackGraffiti.ttf", 24)
 
-        kitap_resim = pygame.image.load("Görseller/kitap.png")
-        s_kitap_resim = pygame.image.load("Görseller/şanslı_kitap.png")
-        telefon_resim = pygame.image.load("Görseller/telefon.png")
-        tablet_resim = pygame.image.load("Görseller/tablet.png")
-        bilgisayar_resim = pygame.image.load("Görseller/bilgisayar.png")
+        kitap_resim = pygame.image.load("kitap.png")
+        s_kitap_resim = pygame.image.load("şanslı_kitap.png")
+        telefon_resim = pygame.image.load("telefon.png")
+        tablet_resim = pygame.image.load("tablet.png")
+        bilgisayar_resim = pygame.image.load("bilgisayar.png")
 
         self.kitap_resimleri = [kitap_resim, s_kitap_resim]
         self.teknoloji_resimleri = [telefon_resim, tablet_resim, bilgisayar_resim]
@@ -163,7 +163,7 @@ class Oyun:
 class Oyuncu(pygame.sprite.Sprite):
     def __init__(self, teknolojiler):
         super().__init__()
-        self.image = pygame.image.load("Görseller/çocuk.png")
+        self.image = pygame.image.load("çocuk.png")
         self.tek = teknolojiler
         self.rect = self.image.get_rect()
         self.rect.centerx = genislik//2
@@ -173,10 +173,10 @@ class Oyuncu(pygame.sprite.Sprite):
         self.s_kitap_sayi = 0
         self.hiz = 8
 
-        self.yakalama_sesi = pygame.mixer.Sound("Sesler/yakalama.wav")
-        self.yanma_sesi = pygame.mixer.Sound("Sesler/yakalanma.wav")
-        self.joker_sesi = pygame.mixer.Sound("Sesler/joker.wav")
-        self.s_kitap_sesi = pygame.mixer.Sound("Sesler/joker.wav")
+        self.yakalama_sesi = pygame.mixer.Sound("yakalama.wav")
+        self.yanma_sesi = pygame.mixer.Sound("yakalanma.wav")
+        self.joker_sesi = pygame.mixer.Sound("joker.wav")
+        self.s_kitap_sesi = pygame.mixer.Sound("joker.wav")
 
     def update(self):
         tus = pygame.key.get_pressed()
@@ -218,7 +218,7 @@ class Oyuncu(pygame.sprite.Sprite):
 class Kitap(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        self.image = pygame.image.load("Görseller/kitap.png")
+        self.image = pygame.image.load("kitap.png")
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
         self.dx = random.choice([-1, 1])
@@ -238,7 +238,7 @@ class Kitap(pygame.sprite.Sprite):
 class SKitap(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        self.image = pygame.image.load("Görseller/şanslı_kitap.png")
+        self.image = pygame.image.load("şanslı_kitap.png")
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
         self.dx = random.choice([-1, 1])
